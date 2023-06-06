@@ -32,7 +32,7 @@ body {
   padding: 20px;
   font-size: 1rem;
   text-align: center;
-  color: #cd2727;
+  color: #9d9d9d;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,7 +48,7 @@ body {
 }
 
 .season-header {
-  color: #cd2727;
+  color: #9d9d9d;
   padding: 10px;
   font-size: 2rem;
   text-align: center;
@@ -56,7 +56,7 @@ body {
 
 .navbar,
 .season-link {
-  color: #cd2727;
+  color: #9d9d9d;
   padding: 10px;
   font-size: 2rem;
   display: flex;
@@ -71,20 +71,20 @@ body {
 
 .navbar::-webkit-scrollbar {
   width: 5px;
-  background-color: rgba(205, 39, 39, 0.5);
-}
-
-.navbar::-webkit-scrollbar-thumb {
   background-color: #cd2727;
 }
 
+.navbar::-webkit-scrollbar-thumb {
+  background-color: #9d9d9d;
+}
+
 .navbar .season-link {
-  color: #cd2727;
+  color: #9d9d9d;
   text-decoration: none;
 }
 
 .navbar .season-link:hover {
   text-decoration: none;
-  color: white;
-  text-shadow: 0 0 5px white;
+  color: #cd2727;
+  text-shadow: 0 0 5px #cd2727;
 }
