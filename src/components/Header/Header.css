@@ -1,0 +1,10 @@
+.header {
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 20rem;
+  height: auto;
+}

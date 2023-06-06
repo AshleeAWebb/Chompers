@@ -1,0 +1,90 @@
+body {
+  font-family: 'Amity Jack', sans-serif;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-container {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 1;
+}
+
+.quote-container {
+  flex-basis: 90%;
+  background: radial-gradient(#131313, #101010, #0a0a0a);
+  padding: 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #cd2727;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  background: radial-gradient(#131313, #101010, #0a0a0a);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  align-items: center;
+}
+
+.season-header {
+  color: #cd2727;
+  padding: 10px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.navbar,
+.season-link {
+  color: #cd2727;
+  padding: 10px;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-height: 12rem;
+  overflow-y: auto;
+  width: 10rem;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+.navbar::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(205, 39, 39, 0.5);
+}
+
+.navbar::-webkit-scrollbar-thumb {
+  background-color: #cd2727;
+}
+
+.navbar .season-link {
+  color: #cd2727;
+  text-decoration: none;
+}
+
+.navbar .season-link:hover {
+  text-decoration: none;
+  color: white;
+  text-shadow: 0 0 5px white;
+}

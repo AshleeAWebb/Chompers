@@ -1,0 +1,13 @@
+.episodeGrid {
+  background-image: url("/Users/ashleeaubree/turing_work/3mod/rancid/rancid/src/assests/ocean.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-auto-rows: minmax(22rem, auto);
+  grid-gap: 25px;
+  padding: 3rem;
+  overflow: hidden;
+}

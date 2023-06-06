@@ -1,0 +1,9 @@
+.episode-img {
+  width: 12.5rem;
+  height: 19rem;
+  filter: grayscale(100%);
+}
+
+.episode-img:hover {
+  filter: none;
+}
