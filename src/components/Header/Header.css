@@ -1,0 +1,10 @@
+.header {
+  background: radial-gradient(#131313, #101010, #0a0a0a);
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 20rem;
+  height: auto;
+}
