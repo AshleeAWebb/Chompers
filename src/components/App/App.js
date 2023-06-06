@@ -1,57 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../App/App.css';
 import Header from '../Header/Header';
-import { fetchData } from '../Api/apiCalls';
+import { fetchSeasons } from '../Api/apiCalls';
 import EpisodesGrid from '../EpisodesGrid/EpisodesGrid';
 import Home from '../Home/Home';
 
-class App extends React.Component {
-  constructor() {
-    super();
+class App extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      episodes: [],
+      seasons: [],
       error: '',
       isLoading: true,
     };
   }
 
-  getEpisodeData = () => {
-    fetchData()
-      .then(jsonData => {
-        this.setState({ episodes: jsonData, isLoading: false });
-      })
-      .catch(error => this.setState({ error: error.message }));
-  };
-
   componentDidMount() {
-    this.getEpisodeData();
+    fetchSeasons()
+      .then((seasonsData) => {
+        this.setState({ seasons: seasonsData, isLoading: false });
+      })
+      .catch((error) => {
+        this.setState({ error: error.message });
+      });
   }
 
-
   render() {
-    const { error, isLoading, episodes } = this.state;
-
-    if (error) {
-      return <h2>Error: {error}</h2>;
-    }
-
-    if (isLoading) {
-      return <h2>Loading...</h2>;
-    }
+    const { seasons, error, isLoading } = this.state;
 
     return (
       <main className="App">
         <div>
           <Switch>
-            <Route exact path="/" render={() => <Home />} />
+            <Route exact path="/">
+              <Home seasons={seasons} />
+            </Route>
             <Route
               exact
-              path="/episodes"
-              render={() => (
+              path="/episodes/:seasonId"
+              render={(props) => (
                 <>
                   <Header />
-                  <EpisodesGrid episodes={episodes} />
+                  <EpisodesGrid {...props} />
                 </>
               )}
             />
