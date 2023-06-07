@@ -1,7 +1,8 @@
-body {
+h1 {
   font-family: 'Amity Jack', sans-serif;
+  padding: 0;
+  margin: 0;
 }
-
 .home-container {
   display: flex;
   flex-direction: column;
@@ -26,10 +27,9 @@ body {
   flex-grow: 1;
 }
 
-.quote-container {
+.font-container {
   flex-basis: 90%;
   background: radial-gradient(#131313, #101010, #0a0a0a);
-  padding: 20px;
   font-size: 1rem;
   text-align: center;
   color: #9d9d9d;
@@ -39,7 +39,21 @@ body {
   align-items: center;
 }
 
+.quote-container {
+  flex-basis: 90%;
+  background: radial-gradient(#131313, #101010, #0a0a0a);
+  font-size: 1rem;
+  text-align: center;
+  color: #9d9d9d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'TrashHand', sans-serif;
+}
+
 .navbar {
+  font-family: 'Amity Jack', sans-serif;
   background: radial-gradient(#131313, #101010, #0a0a0a);
   position: sticky;
   top: 0;
@@ -62,7 +76,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  max-height: 12rem;
+  max-height: 16rem;
   overflow-y: auto;
   width: 10rem;
   direction: rtl;
@@ -87,4 +101,14 @@ body {
   text-decoration: none;
   color: #cd2727;
   text-shadow: 0 0 5px #cd2727;
+}
+
+h2, h3 {
+  font-family: 'TrashHand', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-weight: 600;
 }

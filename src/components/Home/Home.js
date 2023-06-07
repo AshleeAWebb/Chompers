@@ -4,7 +4,7 @@ import '../Home/Home.css';
 import hero from '../../assets/hero.webp';
 import { fetchEpisodes } from '../Api/apiCalls';
 import { sharkFacts } from '../../assets/sharkFacts';
-import bwChomper from '../../assets/bwchomper.svg';
+import grayscale from '../../assets/grayscale.svg';
 
 class Home extends Component {
   constructor(props) {
@@ -45,10 +45,12 @@ class Home extends Component {
           <img className="hero-img" src={hero} alt="Shark" />
         </div>
         <div className="content-container">
-          <div className="quote-container">
-            <h1>Welcome to {bwChomper}</h1>
+          <div className="font-container">
+          <h1>Welcome to <img src={grayscale} alt="Chompers Logo" /></h1>
+          <div className="quotes-container">
             <h2>Shark Fact:</h2>
             <h3>{this.getRandomFact()}</h3>
+            </div>
           </div>
           <div className="navbar">
             <div className="season-header">Season</div>
