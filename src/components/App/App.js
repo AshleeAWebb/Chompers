@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../App/App.css';
+import '../../assets/fonts/font.css';
 import Header from '../Header/Header';
 import { fetchSeasons } from '../Api/apiCalls';
 import EpisodesGrid from '../EpisodesGrid/EpisodesGrid';
