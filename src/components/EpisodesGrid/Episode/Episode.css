@@ -1,6 +1,7 @@
 .episode-img {
-  width: 12.5rem;
-  height: 19rem;
+  width: 20rem;
+  height: auto;
+  max-height: 12rem;
   filter: grayscale(100%);
 }
 
