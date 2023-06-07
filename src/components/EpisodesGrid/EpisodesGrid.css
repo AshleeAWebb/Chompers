@@ -1,5 +1,23 @@
-.episodeGrid {
+body {
   background-image: url("../../assets/ocean.jpg");
+}
+
+.title {
+  margin-top: 2rem;
+}
+
+h1 {
+  color: azure;
+  font-size: 3rem;
+  font-family: 'Amity Jack', sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.episodeGrid {
   max-width: 100%;
   min-height: 100vh;
   display: grid;

@@ -37,7 +37,7 @@ class Home extends Component {
     const { seasons } = this.props;
     const { episodes, error } = this.state;
 
-    const sortedSeasons = [...seasons].sort((a, b) => b.number - a.number); // Sort seasons in descending order
+    const sortedSeasons = [...seasons].sort((a, b) => b.number - a.number);
 
     return (
       <div className="home-container">

@@ -43,7 +43,7 @@ class App extends Component {
               render={(props) => (
                 <>
                   <Header />
-                  <EpisodesGrid {...props} />
+                  <EpisodesGrid {...props}/>
                 </>
               )}
             />
