@@ -1,7 +1,7 @@
 import React from "react";
 import "../Header/Header.css";
 import { Link } from "react-router-dom";
-import chomperLogo from "../../assets/chomper.png";
+import chomperLogo from "../../assets/chomper.svg";
 
 const Header = () => {
   return (

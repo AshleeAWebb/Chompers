@@ -4,6 +4,7 @@ import '../Home/Home.css';
 import hero from '../../assets/hero.webp';
 import { fetchEpisodes } from '../Api/apiCalls';
 import { sharkFacts } from '../../assets/sharkFacts';
+import bwChomper from '../../assets/bwchomper.svg';
 
 class Home extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class Home extends Component {
         </div>
         <div className="content-container">
           <div className="quote-container">
+            <h1>Welcome to {bwChomper}</h1>
             <h2>Shark Fact:</h2>
             <h3>{this.getRandomFact()}</h3>
           </div>
