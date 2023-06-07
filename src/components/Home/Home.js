@@ -46,9 +46,9 @@ class Home extends Component {
         </div>
         <div className="content-container">
           <div className="font-container">
-          <h1>Welcome to <img src={grayscale} alt="Chompers Logo" /></h1>
+          <img className='grayscale' src={grayscale} alt="Chompers Logo" />
+          <h1>Shark Facts</h1>
           <div className="quotes-container">
-            <h2>Shark Fact:</h2>
             <h3>{this.getRandomFact()}</h3>
             </div>
           </div>

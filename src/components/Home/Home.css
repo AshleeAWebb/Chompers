@@ -3,6 +3,7 @@ h1 {
   padding: 0;
   margin: 0;
 }
+
 .home-container {
   display: flex;
   flex-direction: column;
@@ -37,6 +38,10 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.grayscale {
+  width: 13rem;
 }
 
 .quote-container {
@@ -103,12 +108,12 @@ h1 {
   text-shadow: 0 0 5px #cd2727;
 }
 
-h2, h3 {
+ h3 {
   font-family: 'TrashHand', sans-serif;
-  font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
-h2 {
-  font-weight: 600;
+h3 {
+  padding: 0;
+  margin: .5rem;
 }
