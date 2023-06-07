@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchEpisodes } from '../Api/apiCalls';
 import Episode from '../EpisodesGrid/Episode/Episode';
 import '../EpisodesGrid/EpisodesGrid.css';
+import sharkDefault from '../../assets/sharkDefault.png';
 
 class EpisodesGrid extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class EpisodesGrid extends Component {
 
     const episodeCards = episodes.map(({ id, image, name, season, number }) => (
       <Episode
-        episodeImg={image ? image.medium : ''}
+        episodeImg={image ? image.medium : sharkDefault}
         episodeId={id}
         key={id}
         episodeTitle={`${name} - Season ${season}, Episode ${number}`}
