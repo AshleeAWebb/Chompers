@@ -11,6 +11,7 @@ class EpisodesGrid extends Component {
     this.state = {
       episodes: [],
       error: '',
+      season: '',
     };
   }
 
@@ -18,7 +19,10 @@ class EpisodesGrid extends Component {
     const { seasonId } = this.props.match.params;
     fetchEpisodes(seasonId)
       .then((episodesData) => {
-        this.setState({ episodes: episodesData });
+        this.setState({ 
+          episodes: episodesData,
+          season: episodesData.length > 0 ? episodesData[0].season : null
+        });
       })
       .catch((error) => {
         this.setState({ error: error.message });
@@ -26,7 +30,7 @@ class EpisodesGrid extends Component {
   }
 
   render() {
-    const { episodes } = this.state;
+    const { episodes, season } = this.state;
 
     const episodeCards = episodes.map(({ id, image, name, season, number }) => (
       <Episode
@@ -37,8 +41,18 @@ class EpisodesGrid extends Component {
       />
     ));
 
-    return <div className="episodeGrid">{episodeCards}</div>;
+    return (
+      <>
+      <div className="title">
+         {<h1>Season {season}</h1>}
+      </div>
+      <div className="episodeGrid">
+        {episodeCards}
+      </div>
+      </>
+    )
   }
 }
 
 export default EpisodesGrid;
+

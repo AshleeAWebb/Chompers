@@ -1,10 +1,34 @@
-.episodeGrid {
+body {
   background-image: url("../../assets/ocean.jpg");
+}
+
+.title {
+  margin-top: 2rem;
+}
+
+h1 {
+  color: azure;
+  font-size: 3rem;
+  font-family: 'Amity Jack', sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.episodeGrid {
   max-width: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-auto-rows: minmax(15rem, auto);
   grid-gap: 25px;
   padding: 3rem;
   overflow: hidden;
+}
+
+.episodeGrid > div {
+  max-height: 28rem;
+  justify-self: center;  
 }

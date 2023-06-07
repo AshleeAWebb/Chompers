@@ -37,7 +37,7 @@ class Home extends Component {
     const { seasons } = this.props;
     const { episodes, error } = this.state;
 
-    const sortedSeasons = [...seasons].sort((a, b) => b.number - a.number); // Sort seasons in descending order
+    const sortedSeasons = [...seasons].sort((a, b) => b.number - a.number);
 
     return (
       <div className="home-container">
@@ -46,9 +46,9 @@ class Home extends Component {
         </div>
         <div className="content-container">
           <div className="font-container">
-          <h1>Welcome to <img src={grayscale} alt="Chompers Logo" /></h1>
+          <img className='grayscale' src={grayscale} alt="Chompers Logo" />
+          <h1>Shark Facts</h1>
           <div className="quotes-container">
-            <h2>Shark Fact:</h2>
             <h3>{this.getRandomFact()}</h3>
             </div>
           </div>
