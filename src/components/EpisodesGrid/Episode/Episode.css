@@ -1,10 +1,75 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.polaroid {
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+}
+
+.polaroid.favorite {
+  box-shadow: 0 0 10px 5px red;
+}
+
 .episode-img {
+  display: flex;
   width: 20rem;
-  height: auto;
   max-height: 12rem;
   filter: grayscale(100%);
+  padding-top: 0.5rem;
 }
 
 .episode-img:hover {
   filter: none;
 }
+
+.episode-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9d9d9d;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.25rem;
+  height: 3rem;
+  overflow: hidden;
+}
+
+.episode-title:hover {
+  color: #cd2727;
+  text-shadow: 0 0 5px #cd2727;
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fin-button {
+  z-index: 1;
+  height: 4rem;
+  margin-top: -1.2rem; 
+  padding: 0;
+  cursor: pointer;
+}
+
+.fin-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fin-text,
+.favorite-text {
+  font-size: 2rem;
+  color: #cd2727;
+}
+

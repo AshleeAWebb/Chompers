@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
-import '../EpisodesDetail/EpisodesDetail.css';
+import React, { useState } from 'react';
+import '../Episode/Episode.css';
 import { Link } from 'react-router-dom';
+import fin from '../../../assets/fin.svg';
 
-class EpisodesDetail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const Episode = ({ episodeImg, episodeId, episodeTitle }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  render() {
-    return (
-      <div className="episodes-detail">
-        {this.props.episodes.map((episode) => (
-          <Link key={episode.id} to={`${episode.id}/episodes`}>
-            <div className="episodes-detail-item">
-              <img src={episode.image} alt={episode.title} />
-              <h3>{episode.title}</h3>
-            </div>
-          </Link>
-        ))}
+  const handleFinClick = () => {
+    setIsFavorite(true);
+  };
+
+  return (
+    <>
+    <Link className="link" key={episodeId} to={`/${episodeId}`}>
+      <div className={`polaroid${isFavorite ? ' favorite' : ''}`}>
+        <img className="episode-img" src={episodeImg} id={episodeId} alt={episodeTitle} />
+        <p className="episode-title">{episodeTitle}</p>
+        </Link>
+        <img className="fin-button" src={fin} alt="fin" onClick={handleFinClick} />
       </div>
-    );
-  }
-}
+      </>
+  );
+};
 
-export default EpisodesDetail;
+export default Episode;
