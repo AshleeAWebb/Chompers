@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { useParams } from 'react-router-dom';
 import { fetchEpisodes } from '../Api/apiCalls';
+import { useParams } from 'react-router-dom';
 import Episode from '../EpisodesGrid/Episode/Episode';
 import '../EpisodesGrid/EpisodesGrid.css';
 import sharkDefault from '../../assets/sharkDefault.png';
+import PropTypes from 'prop-types';
 
 class EpisodesGrid extends Component {
   constructor(props) {
@@ -36,9 +37,8 @@ class EpisodesGrid extends Component {
       message = (
         <div className="limitedDataWrapper">
           <div className="limitedDataMessage">
-            <p>Limited data is available for Season {this.state.season}.</p>
-            <p>Check out Shark Week for more episodes!</p>
-            <a href="https://www.discovery.com/shark-week">Shark Week</a>
+            <p>Limited data is available for episodes in Season {this.state.season}.</p>
+            <p>Check out <a className ="shark-week-url" href="https://www.discovery.com/shark-week">Shark Week</a> for more details!</p>
           </div>
         </div>
       );
@@ -71,3 +71,14 @@ class EpisodesGrid extends Component {
   }
 }
 export default EpisodesGrid;
+
+EpisodesGrid.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      seasonId: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  episodes: PropTypes.array,
+  error: PropTypes.string,
+  season: PropTypes.string,
+};

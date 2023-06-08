@@ -51,17 +51,18 @@ h1 {
   font-size: 2rem;
 } 
 
-.limitedDataMessage a {
-  color: azure;
-  margin-top: 1rem;
-  margin: 0;
+.shark-week-url {
+  margin: 1rem;
+  font-family: 'Amity Jack', sans-serif;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 2rem;
+  font-weight: bold;
 }
 
-.limitedDataMessage a {
-  color: #cd2727; 
-  font-size: 2rem;
+.shark-week-url:hover {
+  text-decoration: none;
+  color: #cd2727;
+  text-shadow: 0 0 5px #cd2727;
 }
 
 @media (max-width: 600px) {
