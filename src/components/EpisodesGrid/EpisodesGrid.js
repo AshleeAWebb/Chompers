@@ -29,9 +29,25 @@ class EpisodesGrid extends Component {
       });
   }
 
-  render() {
-    const { episodes, season } = this.state;
+  limititedSeason() {
+    let message = null;
+    const hasDefaultImages = this.state.episodes.every(({ image }) => image === null || image === sharkDefault);
+    if (hasDefaultImages) {
+      message = (
+        <div className="limitedDataWrapper">
+          <div className="limitedDataMessage">
+            <p>Limited data is available for Season {this.state.season}.</p>
+            <p>Check out Shark Week for more episodes!</p>
+            <a href="https://www.discovery.com/shark-week">Shark Week</a>
+          </div>
+        </div>
+      );
+    }
+    return message;
+  }
 
+  render() {
+    const { episodes } = this.state;
     const episodeCards = episodes.map(({ id, image, name, season, number }) => (
       <Episode
         episodeImg={image ? image.medium : sharkDefault}
@@ -40,19 +56,18 @@ class EpisodesGrid extends Component {
         episodeTitle={`${name} - Season ${season}, Episode ${number}`}
       />
     ));
-
+  
     return (
       <>
-      <div className="title">
-         {<h1>Season {season}</h1>}
-      </div>
-      <div className="episodeGrid">
-        {episodeCards}
-      </div>
+        <div className="title">
+          {<h1>Season {this.state.season}</h1>}
+          {this.limititedSeason()}
+        </div>
+        <div className="episodeGrid">
+          {episodeCards}
+        </div>
       </>
-    )
+    );
   }
 }
-
 export default EpisodesGrid;
-

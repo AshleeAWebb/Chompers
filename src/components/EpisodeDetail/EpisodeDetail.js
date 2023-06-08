@@ -21,7 +21,7 @@ class EpisodeDetail extends Component {
         summary: "",
         id: "",
       },
-      error: '', 
+      error: '',
     };
   }
 
@@ -40,7 +40,7 @@ class EpisodeDetail extends Component {
             airdate: data.airdate,
             runtime: data.runtime,
             image: data.image,
-            summary: removeHtmlTags(data.summary), 
+            summary: removeHtmlTags(data.summary),
             id: data.id,
           },
           error: '',
@@ -53,24 +53,48 @@ class EpisodeDetail extends Component {
           this.setState({ error: "Unknown error." });
         }
       });
-  }
+    }
+
+
+getSharkMessage() {
+  return (
+    <div className="shark-message">
+      <div className="shark-episode-details-info">
+        <p>We're sorry, but information about this episode is not available.</p>
+        <p>Swim on over to Discovery Channel and</p>
+        <p>Check out</p>
+         <a href="https://www.discovery.com/shark-week" target="_blank" rel="noopener noreferrer"> Shark Week </a>
+         <p> for more exciting shark-related content!</p>
+      </div>
+    </div>
+  );
+}
+ 
   render() {
     const { episode } = this.state;
+    const formattedAirdate = new Date(episode.airdate).toLocaleDateString();
 
+    if (!episode.name && !episode.season && !episode.airdate && !episode.runtime && !episode.summary) {
+      return this.getSharkMessage();
+    }
     return (
       <div className="episode-details">
-        <div className="episode-card">
+        <h2 className="episode-name">{episode.name}</h2>
+        <div className="episode-details-info">
+          <p>Season {episode.season}</p>
+          <p className="time">{episode.runtime} Mintues</p>
+          <p className="date">{formattedAirdate}</p>
+          <p className="summary-detail">{episode.summary}</p>
+        </div>
+        <div className="episode-image-container">
           <img
             className="episode-image"
-            src={episode.image ? episode.image.original: sharkDefault}
+            src={episode.image ? episode.image.original : sharkDefault}
             alt={episode.name}
           />
-          <h2 className="episode-name">{episode.name}</h2>
-        </div>
-        <div className="right-side">
-          <section className="prep-wrapper">
-            <p className="summary-detail">{episode.summary}</p> 
-          </section>
+          <p className="episode-url">
+            For More Shark Week Information: <a href="https://www.discovery.com/shark-week" target="_blank" rel="noreferrer">Click Here</a>
+          </p>
         </div>
       </div>
     );

@@ -1,31 +1,78 @@
-body {
-  background-image: url("../../assets/ocean.jpg");
-}
 
-.episode-card {
+.episode-details {
   display: flex;
-  flex-direction: column;
-  justify-self: center;
-  align-self: center;
-  max-height: 28rem;
-  margin: 2rem;
 }
 
 .episode-name {
   color: #9d9d9d;
-  font-size: 4rem;
+  font-size: 5rem;
+  font-family: 'Amity Jack', sans-serif;
+}
+
+.episode-details-info {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  overflow-y: scroll;
+  padding-right: 1rem;
+}
+
+.episode-summary {
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
+
+.episode-image-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .episode-image {
   width: 40rem;
+  order: 2;
 }
 
-.prep-wrapper {
+.episode-url {
   margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #9d9d9d;
 }
 
-.summary-detail {
-  color: #9d9d9d;
-  font-size: 1.2rem;
-  line-height: 1.5;
+.episode-url:hover {
+  color: #cd2727;
+  text-shadow: 0 0 5px #cd2727;
 }
+
+p {
+  font-size: 1.2rem;
+  color: #9d9d9d;
+  margin: 0.5rem 0;
+}
+
+.shark-message {
+  margin-top: 10rem;
+  font-size: 5rem;
+  font-family: 'Amity Jack', sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.shark-message a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px; 
+  text-decoration: none;
+  color: #cd2727;
+}
+
+.shark-episode-details-info p {
+  color: #ffffff;
+  margin: 0 ;
+  font-size: 2rem;
+}
+
+
