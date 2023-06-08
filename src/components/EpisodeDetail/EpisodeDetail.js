@@ -80,8 +80,8 @@ getSharkMessage() {
     }
     return (
       <div className="episode-details">
-        <h2 className="episode-name">{episode.name}</h2>
         <div className="episode-details-info">
+        <h2 className="episode-name">{episode.name}</h2>
           <p>Season {episode.season}</p>
           <p className="time">{episode.runtime} Mintues</p>
           <p className="date">{formattedAirdate}</p>
@@ -94,8 +94,9 @@ getSharkMessage() {
             alt={episode.name}
           />
           <p className="episode-url">
-            For More Shark Week Information: <a href="https://www.discovery.com/shark-week" target="_blank" rel="noreferrer">Click Here</a>
-          </p>
+            For More Shark Week Information:  
+            <a className="shark-week-url" href="https://www.discovery.com/shark-week" target="_blank" rel="noreferrer"> Click Here</a>
+            </p>
         </div>
       </div>
     );
