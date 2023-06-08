@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import '../App/App.css';
 import '../../assets/fonts/font.css';
 import Header from '../Header/Header';
 import { fetchSeasons } from '../Api/apiCalls';
 import EpisodesGrid from '../EpisodesGrid/EpisodesGrid';
 import Home from '../Home/Home';
+import { ErrorPage } from '../ErrorPage/ErrorPage';
+
 
 class App extends Component {
   constructor(props) {
@@ -31,26 +33,37 @@ class App extends Component {
     const { seasons, error, isLoading } = this.state;
 
     return (
-      <main className="App">
-        <div>
-          <Switch>
-            <Route exact path="/">
-              <Home seasons={seasons} />
-            </Route>
-            <Route
-              exact
-              path="/episodes/:seasonId"
-              render={(props) => (
-                <>
-                  <Header />
-                  <EpisodesGrid {...props}/>
-                </>
-              )}
-            />
-            <Route path="*" render={() => <h2>Error: Page not found</h2>} />
-          </Switch>
-        </div>
-      </main>
+      <>
+        {error ? (
+          <ErrorPage />
+        ) : (
+          <main className="App">
+            <div>
+              <Switch>
+                <Route exact path="/">
+                  <Home seasons={seasons} />
+                </Route>
+                <Route
+                  exact
+                  path="/episodes/:seasonId"
+                  render={(props) => (
+                    <>
+                      <Header />
+                      <EpisodesGrid {...props} />
+                    </>
+                  )}
+                />
+                <Route exact path="/error">
+                  <ErrorPage />
+                </Route>
+                <Route path="*">
+                  <Redirect to="/error" />
+                </Route>
+              </Switch>
+            </div>
+          </main>
+        )}
+      </>
     );
   }
 }

@@ -115,7 +115,12 @@ h1 {
   margin: .5rem;
 }
 
-
+@media (max-width: 1200px) {
+  .hero-img {
+    width: 100vw;
+    height: 100vh;
+  }
+}
 @media (max-width: 600px) {
   .navbar {
     padding: 0;
