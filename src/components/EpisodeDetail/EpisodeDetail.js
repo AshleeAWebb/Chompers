@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../EpisodeDetail/EpisodeDetail.css';
+import PropTypes from 'prop-types';
 import { fetchSingleEpisode } from "../Api/apiCalls";
 import sharkDefault from '../../assets/sharkDefault.png';
 
@@ -79,8 +80,8 @@ getSharkMessage() {
     }
     return (
       <div className="episode-details">
-        <h2 className="episode-name">{episode.name}</h2>
         <div className="episode-details-info">
+        <h2 className="episode-name">{episode.name}</h2>
           <p>Season {episode.season}</p>
           <p className="time">{episode.runtime} Mintues</p>
           <p className="date">{formattedAirdate}</p>
@@ -93,8 +94,9 @@ getSharkMessage() {
             alt={episode.name}
           />
           <p className="episode-url">
-            For More Shark Week Information: <a href="https://www.discovery.com/shark-week" target="_blank" rel="noreferrer">Click Here</a>
-          </p>
+            For More Shark Week Information:  
+            <a className="shark-week-url" href="https://www.discovery.com/shark-week" target="_blank" rel="noreferrer"> Click Here</a>
+            </p>
         </div>
       </div>
     );
@@ -102,3 +104,22 @@ getSharkMessage() {
 }
 
 export default EpisodeDetail;
+
+EpisodeDetail.propTypes = {
+  id: PropTypes.string.isRequired,
+  episode: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    season: PropTypes.string.isRequired,
+    airdate: PropTypes.string.isRequired,
+    runtime: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
+  showSummary: PropTypes.bool,
+  onLoadComplete: PropTypes.func,
+  defaultImage: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.oneOf([null]),
+  ]),
+};

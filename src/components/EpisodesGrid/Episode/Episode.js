@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../Episode/Episode.css';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import fin from '../../../assets/fin.svg';
 
@@ -53,3 +54,9 @@ class Episode extends Component {
 }
 
 export default Episode;
+
+Episode.propTypes = {
+  episodeImg: PropTypes.string.isRequired,
+  episodeId: PropTypes.number.isRequired,
+  episodeTitle: PropTypes.string.isRequired,
+};

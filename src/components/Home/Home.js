@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 import '../Home/Home.css';
 import hero from '../../assets/hero.webp';
 import { fetchEpisodes } from '../Api/apiCalls';
@@ -16,6 +17,10 @@ class Home extends Component {
   }
 
   componentDidMount() {
+  this.getHomeInfo()
+  }
+
+  getHomeInfo() {
     const { seasons } = this.props;
     if (seasons.length > 0) {
       fetchEpisodes(seasons[0].id)
@@ -28,6 +33,7 @@ class Home extends Component {
     }
   }
 
+
   getRandomFact() {
     const randomIndex = Math.floor(Math.random() * sharkFacts.length);
     return sharkFacts[randomIndex];
@@ -35,8 +41,6 @@ class Home extends Component {
 
   render() {
     const { seasons } = this.props;
-    const { episodes, error } = this.state;
-
     const sortedSeasons = [...seasons].sort((a, b) => b.number - a.number);
 
     return (
@@ -69,4 +73,14 @@ class Home extends Component {
 }
 
 export default Home;
+
+Home.propTypes = {
+  seasons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      number: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
+
 
