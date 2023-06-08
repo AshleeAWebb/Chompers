@@ -1,0 +1,41 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(../../assets/error-page.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.error-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.error-link {
+  color: #dbd4c0;
+  font-family: 'Amity Jack', sans-serif;
+  font-size: 3rem;
+  text-align: left;
+  width: 35%;
+  margin-right: 42rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.error-link:hover {
+  color: red;
+  text-shadow: 0 0 10px red;
+}
+
+@media (max-width: 1020px) {
+  .error-link {
+    font-size: 2rem;
+    text-align: left;
+    width: 25%;
+    margin-right: 30rem;
+  }
+}
