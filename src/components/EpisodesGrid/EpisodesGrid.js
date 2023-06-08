@@ -42,14 +42,14 @@ class EpisodesGrid extends Component {
     ));
 
     return (
-      <>
+      <div className='wrapper'>
       <div className="title">
          {<h1>Season {season}</h1>}
       </div>
       <div className="episodeGrid">
         {episodeCards}
       </div>
-      </>
+      </div>
     )
   }
 }
