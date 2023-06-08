@@ -37,7 +37,7 @@ class Episode extends Component {
     return (
       <div className='wrapper'>
         <div className={`polaroid${isFavorite ? ' favorite' : ''}`}>
-          <Link className="link" key={episodeId} to={`/${episodeId}`}>
+        <Link className="link" key={episodeId} to={`/episode/${episodeId}`}>
             <img className="episode-img" src={episodeImg} id={episodeId} alt={episodeTitle} />
             <p className="episode-title">{episodeTitle}</p>
           </Link>

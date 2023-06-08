@@ -7,6 +7,7 @@ import { fetchSeasons } from '../Api/apiCalls';
 import EpisodesGrid from '../EpisodesGrid/EpisodesGrid';
 import Home from '../Home/Home';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
+import EpisodeDetail from '../EpisodeDetail/EpisodeDetail';
 
 
 class App extends Component {
@@ -50,6 +51,16 @@ class App extends Component {
                     <>
                       <Header />
                       <EpisodesGrid {...props} />
+                    </>
+                  )}
+                />
+                <Route
+                  exact
+                  path="/episode/:id"
+                  render={({ match }) => (
+                    <>
+                    <Header />
+                    <EpisodeDetail id={match.params.id} />
                     </>
                   )}
                 />
