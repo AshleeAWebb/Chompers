@@ -79,3 +79,14 @@ p {
   color: #cd2727;
 }
 
+@media (max-width: 600px) {
+  .episode-title,
+  p {
+    font-size: 1rem;
+  }
+  
+  .fin-text,
+  .favorite-text {
+    font-size: 1.5rem;
+  }
+}

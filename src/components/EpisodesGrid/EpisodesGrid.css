@@ -32,3 +32,23 @@ h1 {
   max-height: 28rem;
   justify-self: center;  
 }
+
+@media (max-width: 600px) {
+  .title {
+    margin-top: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .episodeGrid {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-rows: 1ft 1fr 1fr 1fr;
+  }
+
+  .episodeGrid > div {
+    max-height: 20rem;
+  }
+}
