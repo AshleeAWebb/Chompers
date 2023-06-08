@@ -57,6 +57,6 @@ export default Episode;
 
 Episode.propTypes = {
   episodeImg: PropTypes.string.isRequired,
-  episodeId: PropTypes.string.isRequired,
+  episodeId: PropTypes.number.isRequired,
   episodeTitle: PropTypes.string.isRequired,
 };

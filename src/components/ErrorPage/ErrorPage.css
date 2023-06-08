@@ -10,11 +10,6 @@
   background-position: center;
 }
 
-.error-image {
-  max-width: 100%;
-  height: auto;
-}
-
 .error-link {
   color: #dbd4c0;
   font-family: 'Amity Jack', sans-serif;
@@ -33,9 +28,16 @@
 
 @media (max-width: 1020px) {
   .error-link {
-    font-size: 2rem;
-    text-align: left;
-    width: 25%;
-    margin-right: 30rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .error-page {
+    background-image:none;
+    width: 100%;
   }
 }
