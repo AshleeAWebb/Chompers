@@ -114,7 +114,7 @@ EpisodeDetail.propTypes = {
     image: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   showSummary: PropTypes.bool,
   onLoadComplete: PropTypes.func,
   defaultImage: PropTypes.oneOfType([
