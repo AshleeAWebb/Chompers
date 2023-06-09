@@ -1,4 +1,4 @@
-describe('Episode Card', () => {
+describe('2004 Grid', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.tvmaze.com/seasons/17523/episodes', {
       fixture: '2004.json', 

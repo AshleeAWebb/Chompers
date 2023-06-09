@@ -1,4 +1,4 @@
-describe('Episode Card', () => {
+describe('2022 Grid', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.tvmaze.com/seasons/139611/episodes', {
       fixture: '2022.json', 
