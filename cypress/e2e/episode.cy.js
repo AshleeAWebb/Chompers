@@ -35,6 +35,20 @@ describe('Episode Card', () => {
     cy.reload();
     cy.get('.polaroid.favorite').should('not.exist');
   });
+
+
+  it('should display the default image when episode image does not exist', () => {
+    cy.intercept('GET', 'https://api.tvmaze.com/seasons/139611/episodes', {
+      fixture: 'episodes_no_image.json', 
+    }).as('getEpisodes');
+    cy.reload();
+    cy.wait('@getEpisodes');
+    cy.get('.episode-img')
+      .should('be.visible')
+      .and(($img) => {
+        expect($img[0].src).to.include('static/media/sharkDefault.24c1090fd67a1f5214cb.png');
+      });
+  });
 });
 
 

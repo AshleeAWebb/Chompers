@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1039809,
+    "url": "https://www.tvmaze.com/episodes/1039809/shark-week-2004-07-25-primal-scream",
+    "name": "Primal Scream",
+    "season": 2004,
+    "number": 1,
+    "type": "regular",
+    "airdate": "2004-07-25",
+    "airtime": "20:00",
+    "airstamp": "2004-07-26T00:00:00+00:00",
+    "runtime": 60,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": null,
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/1039809"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/5853"
+      }
+    }
+  },
+  {
+    "id": 1039810,
+    "url": "https://www.tvmaze.com/episodes/1039810/shark-week-2004-07-25-tiger-shark-attack-beyond-fear",
+    "name": "Tiger Shark Attack: Beyond Fear",
+    "season": 2004,
+    "number": 2,
+    "type": "regular",
+    "airdate": "2004-07-25",
+    "airtime": "20:00",
+    "airstamp": "2004-07-26T00:00:00+00:00",
+    "runtime": 60,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": null,
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/1039810"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/5853"
+      }
+    }
+  },
+  {
+    "id": 1039811,
+    "url": "https://www.tvmaze.com/episodes/1039811/shark-week-2004-07-26-monster-house-shark-house",
+    "name": "Monster House: Shark House",
+    "season": 2004,
+    "number": 3,
+    "type": "regular",
+    "airdate": "2004-07-26",
+    "airtime": "20:00",
+    "airstamp": "2004-07-27T00:00:00+00:00",
+    "runtime": 60,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": null,
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/1039811"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/5853"
+      }
+    }
+  }
+]
