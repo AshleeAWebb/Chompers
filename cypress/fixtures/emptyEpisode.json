@@ -1,15 +1,14 @@
-
-  {
+{
   "id": 2359999,
   "url": "https://www.tvmaze.com/episodes/2359999/shark-week-2022-special-dawn-of-the-monster-mako",
-  "name": "Dawn of the Monster Mako",
+  "name": null,
   "season": 2022,
   "number": null,
   "type": "significant_special",
-  "airdate": "2022-07-15",
+  "airdate": null,
   "airtime": "",
   "airstamp": "2022-07-15T16:00:00+00:00",
-  "runtime": 41,
+  "runtime": null,
   "rating": {
     "average": null
   },
