@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import '../EpisodeDetail/EpisodeDetail.css';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { fetchSingleEpisode } from "../Api/apiCalls";
 import sharkDefault from '../../assets/sharkDefault.png';
 
@@ -88,8 +89,8 @@ getSharkMessage() {
   return (
     <div className="shark-message">
       <div className="shark-episode-details-info">
-        {error ? (
-          <p>Sorry, there was an error: {error}</p>
+      {error ? (
+          <Redirect to="/error" />
         ) : (
           <>
             <p>We're sorry, but information about this episode is not available.</p>
