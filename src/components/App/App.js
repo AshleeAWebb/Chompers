@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <>
         {error ? (
-          <ErrorPage />
+          <ErrorPage message={error}/>
         ) : (
           <main className="App">
             <div>
@@ -50,7 +50,7 @@ class App extends Component {
                   render={(props) => (
                     <>
                       <Header />
-                      <EpisodesGrid {...props} />
+                      <EpisodesGrid {...props} message={error}/>
                     </>
                   )}
                 />
@@ -60,12 +60,12 @@ class App extends Component {
                   render={({ match }) => (
                     <>
                     <Header />
-                    <EpisodeDetail id={match.params.id} />
+                    <EpisodeDetail id={match.params.id} message={error}/>
                     </>
                   )}
                 />
                 <Route exact path="/error">
-                  <ErrorPage />
+                  <ErrorPage message={error}/>
                 </Route>
                 <Route path="*">
                   <Redirect to="/error" />

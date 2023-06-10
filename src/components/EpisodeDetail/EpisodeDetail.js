@@ -83,29 +83,27 @@ class EpisodeDetail extends Component {
   }
 
 
-getSharkMessage() {
-  const { error } = this.state;
-
-  return (
-    <div className="shark-message">
-      <div className="shark-episode-details-info">
-      {error ? (
-          <Redirect to="/error" />
-        ) : (
-          <>
-            <p>We're sorry, but information about this episode is not available.</p>
-            <p>Swim on over to Discovery Channel and</p>
-            <p>Check out</p>
-            <a href="https://www.discovery.com/shark-week" target="_blank" rel="noopener noreferrer">
-              Shark Week
-            </a>
-            <p>for more exciting shark-related content!</p>
-          </>
-        )}
+  getSharkMessage() {
+    const { error } = this.state;
+  
+    if (error) {
+      return <Redirect to="/error" />;
+    }
+  
+    return (
+      <div className="shark-message">
+        <div className="shark-episode-details-info">
+          <p>We're sorry, but information about this episode is not available.</p>
+          <p>Swim on over to Discovery Channel and</p>
+          <p>Check out</p>
+          <a href="https://www.discovery.com/shark-week" target="_blank" rel="noopener noreferrer">
+            Shark Week
+          </a>
+          <p>for more exciting shark-related content!</p>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
   render() {
   const { episode } = this.state;

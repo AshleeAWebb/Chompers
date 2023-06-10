@@ -26,23 +26,28 @@ class EpisodesGrid extends Component {
         });
       })
       .catch((error) => {
-        this.setState({ error: error.message });
+        if (error instanceof Error) {
+          this.setState({ error: "Server error." });
+        } else {
+          this.setState({ error: "Unknown error." });
+        }
       });
   }
 
   limititedSeason() {
     const hasDefaultImages = this.state.episodes.every(({ image }) => image === null || image === sharkDefault);
     if (!hasDefaultImages) {
-      return null; } 
-      return (
-        <div className="limitedDataWrapper">
-          <div className="limitedDataMessage">
-            <p>Limited data is available for episodes in Season {this.state.season}.</p>
-            <p>Check out <a className="shark-week-url" href="https://www.discovery.com/shark-week">Shark Week</a> for more details!</p>
-          </div>
-        </div>
-      );
+      return null;
     }
+    return (
+      <div className="limitedDataWrapper">
+        <div className="limitedDataMessage">
+          <p>Limited data is available for episodes in Season {this.state.season}.</p>
+          <p>Check out <a className="shark-week-url" href="https://www.discovery.com/shark-week">Shark Week</a> for more details!</p>
+        </div>
+      </div>
+    );
+  }
 
   render() {
     const { episodes, error } = this.state;
@@ -55,26 +60,23 @@ class EpisodesGrid extends Component {
       />
     ));
 
+    if (error) {
+      return <Redirect to="/error" />;
+    }
+
     return (
-      <>
-        {error ? (
-          <Redirect to="/error" />
-        ) : (
-          <>
-            <div className="title">
-              <h1>Season {this.state.season}</h1>
-              {this.limititedSeason()}
-            </div>
-            <div className="episodeGrid">
-              {episodeCards}
-            </div>
-          </>
-        )}
-      </>
+      <div>
+        <div className="title">
+          <h1>Season {this.state.season}</h1>
+          {this.limititedSeason()}
+        </div>
+        <div className="episodeGrid">
+          {episodeCards}
+        </div>
+      </div>
     );
   }
 }
-
 
 export default EpisodesGrid;
 
