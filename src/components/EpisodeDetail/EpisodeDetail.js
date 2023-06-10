@@ -16,24 +16,10 @@ class EpisodeDetail extends Component {
         name: "",
         season: "",
         number: "",
-        type: "",
         airdate: "",
-        airtime: "",
-        airstamp: "",
         runtime: "",
-        rating: {
-          average: ""
-        },
         image: "",
-        summary: "",
-        _links: {
-          self: {
-            href: ""
-          },
-          show: {
-            href: ""
-          }
-        }
+        summary: ""
       },
       error: ""
     };
@@ -53,15 +39,11 @@ class EpisodeDetail extends Component {
           name: data.name,
           season: data.season,
           number: data.number,
-          type: data.type,
           airdate: data.airdate,
-          airtime: data.airtime,
-          airstamp: data.airstamp,
           runtime: data.runtime,
           rating: data.rating,
           image: data.image,
           summary: data.summary,
-          _links: data._links,
         };
 
         this.setState({
@@ -147,28 +129,14 @@ EpisodeDetail.propTypes = {
     name: PropTypes.string.isRequired,
     season: PropTypes.number.isRequired,
     number: PropTypes.number,
-    type: PropTypes.string.isRequired,
     airdate: PropTypes.string.isRequired,
-    airtime: PropTypes.string.isRequired,
-    airstamp: PropTypes.string.isRequired,
     runtime: PropTypes.number.isRequired,
-    rating: PropTypes.shape({
-      average: PropTypes.number,
-    }),
     image: PropTypes.shape({
       medium: PropTypes.string,
       original: PropTypes.string,
     }),
     summary: PropTypes.string,
-    _links: PropTypes.shape({
-      self: PropTypes.shape({
-        href: PropTypes.string,
-      }),
-      show: PropTypes.shape({
-        href: PropTypes.string,
-      }),
     }),
-  }),
   showSummary: PropTypes.bool,
   onLoadComplete: PropTypes.func,
   defaultImage: PropTypes.oneOfType([
