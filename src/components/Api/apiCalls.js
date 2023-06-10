@@ -37,4 +37,4 @@ const fetchSingleEpisode = (episodeId) => {
 };
 
 
-export { fetchEpisodes, fetchSeasons, fetchSingleEpisode};
+export { fetchEpisodes, fetchSeasons, fetchSingleEpisode };

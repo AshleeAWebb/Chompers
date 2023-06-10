@@ -1,5 +1,5 @@
 body {
-  font-family: 'TrashHand', sans-serif;
+  font-family: "TrashHand", sans-serif;
 }
 .wrapper {
   display: flex;
@@ -61,7 +61,7 @@ p {
 .fin-button {
   z-index: 1;
   height: 3.5rem;
-  margin-top: -.7rem; 
+  margin-top: -0.7rem;
   padding: 0;
   cursor: pointer;
 }
@@ -84,7 +84,7 @@ p {
   p {
     font-size: 1rem;
   }
-  
+
   .fin-text,
   .favorite-text {
     font-size: 1.5rem;

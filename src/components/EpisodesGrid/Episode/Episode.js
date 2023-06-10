@@ -32,14 +32,14 @@ class Episode extends Component {
   };
 
   render() {
-    const { episodeImg, episodeId, episodeTitle } = this.props; 
+    const { episodeImg, episodeId, episodeTitle } = this.props;
     const { isFavorite } = this.state;
 
     return (
       <div className='wrapper'>
         <div className={`polaroid${isFavorite ? ' favorite' : ''}`}>
           <Link className="link" key={episodeId} to={`/episode/${episodeId}`}>
-            <img className="episode-img" src={episodeImg} id={episodeId} alt={episodeTitle} /> 
+            <img className="episode-img" src={episodeImg} id={episodeId} alt={episodeTitle} />
             <p className="episode-title">{episodeTitle}</p>
           </Link>
           <div className="fin-button-container" onClick={this.handleFinClick}>
@@ -58,5 +58,5 @@ export default Episode;
 Episode.propTypes = {
   episodeImg: PropTypes.string.isRequired,
   episodeId: PropTypes.number.isRequired,
-  episodeTitle: PropTypes.string.isRequired, 
+  episodeTitle: PropTypes.string.isRequired,
 };

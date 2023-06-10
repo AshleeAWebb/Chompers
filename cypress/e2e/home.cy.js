@@ -1,14 +1,14 @@
 describe('Home', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.tvmaze.com/seasons/139611/episodes', {
-      fixture: '2022.json', 
+      fixture: '2022.json',
     }).as('getEpisodes');
 
     cy.intercept('GET', 'https://api.tvmaze.com/shows/5853/seasons', {
-      fixture: 'seasons.json', 
+      fixture: 'seasons.json',
     }).as('allSharkSeasons');
 
-    cy.visit('http://localhost:3000'); 
+    cy.visit('http://localhost:3000');
 
     cy.wait('@allSharkSeasons');
   });
@@ -30,6 +30,6 @@ describe('Home', () => {
 
   it('navigates to episode page when a season link is clicked', () => {
     cy.get('.season-link').first().click();
-    cy.url().should('include', '/episodes/139611'); 
+    cy.url().should('include', '/episodes/139611');
   });
 });

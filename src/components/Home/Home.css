@@ -1,7 +1,14 @@
 h1 {
-  font-family: 'Amity Jack', sans-serif;
+  font-family: "Amity Jack", sans-serif;
   padding: 0;
   margin: 0;
+}
+
+h3 {
+  font-family: "TrashHand", sans-serif;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0.5rem;
 }
 
 .home-container {
@@ -41,10 +48,6 @@ h1 {
   align-items: center;
 }
 
-.grayscale {
-  width: 13rem;
-}
-
 .quote-container {
   flex-basis: 90%;
   background: radial-gradient(#131313, #101010, #0a0a0a);
@@ -55,16 +58,11 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'TrashHand', sans-serif;
+  font-family: "TrashHand", sans-serif;
 }
 
-.navbar {
-  font-family: 'Amity Jack', sans-serif;
-  background: radial-gradient(#131313, #101010, #0a0a0a);
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  align-items: center;
+.grayscale {
+  width: 13rem;
 }
 
 .season-header {
@@ -72,6 +70,15 @@ h1 {
   padding: 10px;
   font-size: 2rem;
   text-align: center;
+}
+
+.navbar {
+  font-family: "Amity Jack", sans-serif;
+  background: radial-gradient(#131313, #101010, #0a0a0a);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  align-items: center;
 }
 
 .navbar,
@@ -108,13 +115,6 @@ h1 {
   text-shadow: 0 0 5px #cd2727;
 }
 
- h3 {
-  font-family: 'TrashHand', sans-serif;
-  font-size: 2rem;
-  padding: 0;
-  margin: .5rem;
-}
-
 @media (max-width: 1200px) {
   .hero-img {
     width: 100vw;
@@ -126,22 +126,22 @@ h1 {
     padding: 0;
     margin: 0;
   }
-  
+
   .season-link {
     width: 60%;
   }
-  
+
   .season-link {
-    padding:15px;
+    padding: 15px;
     font-size: 1.5rem;
   }
 
   .grayscale {
     width: 8rem;
   }
-  
+
   h1 {
-   font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   h3 {

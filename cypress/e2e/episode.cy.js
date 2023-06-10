@@ -1,14 +1,14 @@
 describe('Episode Card', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.tvmaze.com/seasons/139611/episodes', {
-      fixture: '2022.json', 
+      fixture: '2022.json',
     }).as('getEpisodes');
 
     cy.intercept('GET', 'https://api.tvmaze.com/shows/5853/seasons', {
-      fixture: 'seasons.json', 
+      fixture: 'seasons.json',
     }).as('allSharkSeasons');
 
-    cy.visit('http://localhost:3000/episodes/139611'); 
+    cy.visit('http://localhost:3000/episodes/139611');
 
     cy.wait('@getEpisodes');
   });
@@ -39,7 +39,7 @@ describe('Episode Card', () => {
 
   it('should display the default image when episode image does not exist', () => {
     cy.intercept('GET', 'https://api.tvmaze.com/seasons/139611/episodes', {
-      fixture: 'episodes_no_image.json', 
+      fixture: 'episodes_no_image.json',
     }).as('getEpisodes');
     cy.reload();
     cy.wait('@getEpisodes');
@@ -52,4 +52,3 @@ describe('Episode Card', () => {
 });
 
 
-    

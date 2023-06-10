@@ -22,35 +22,42 @@ class EpisodesGrid extends Component {
       .then((episodesData) => {
         this.setState({
           episodes: episodesData,
-          season: episodesData.length > 0 ? episodesData[0].season : null
+          season: episodesData.length > 0 ? episodesData[0].season : '',
         });
       })
       .catch((error) => {
         if (error instanceof Error) {
-          this.setState({ error: "Server error." });
+          this.setState({ error: 'Server error.' });
         } else {
-          this.setState({ error: "Unknown error." });
+          this.setState({ error: 'Unknown error.' });
         }
       });
   }
 
-  limititedSeason() {
-    const hasDefaultImages = this.state.episodes.every(({ image }) => image === null || image === sharkDefault);
+  limitedSeason() {
+    const { episodes, season } = this.state;
+    const hasDefaultImages = episodes.every(({ image }) => image === null || image === sharkDefault);
     if (!hasDefaultImages) {
       return null;
     }
     return (
       <div className="limitedDataWrapper">
         <div className="limitedDataMessage">
-          <p>Limited data is available for episodes in Season {this.state.season}.</p>
-          <p>Check out <a className="shark-week-url" href="https://www.discovery.com/shark-week">Shark Week</a> for more details!</p>
+          <p>Limited data is available for episodes in Season {season}.</p>
+          <p>
+            Check out{' '}
+            <a className="shark-week-url" href="https://www.discovery.com/shark-week">
+              Shark Week
+            </a>{' '}
+            for more details!
+          </p>
         </div>
       </div>
     );
   }
 
   render() {
-    const { episodes, error } = this.state;
+    const { episodes, error, season } = this.state;
     const episodeCards = episodes.map(({ id, image, name, season, number }) => (
       <Episode
         episodeImg={image ? image.medium : sharkDefault}
@@ -61,23 +68,25 @@ class EpisodesGrid extends Component {
     ));
 
     return (
-      error ? (
-        <Redirect to="/error" />
-      ) : 
       <div>
-        <div className="title">
-          <h1>Season {this.state.season}</h1>
-          {this.limititedSeason()}
-        </div>
-        <div className="episodeGrid">
-          {episodeCards}
-        </div>
+        {error ? (
+          <Redirect to="/error" />
+        ) : (
+          <div>
+            <div className="title">
+              <h1>Season {season}</h1>
+              {this.limitedSeason()}
+            </div>
+            <div className="episodeGrid">{episodeCards}</div>
+          </div>
+        )}
       </div>
     );
   }
 }
 
 export default EpisodesGrid;
+
 
 EpisodesGrid.propTypes = {
   match: PropTypes.shape({

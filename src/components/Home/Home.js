@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import '../Home/Home.css';
 import hero from '../../assets/hero.webp';
 import { fetchEpisodes } from '../Api/apiCalls';
@@ -17,7 +17,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-  this.getHomeInfo()
+    this.getHomeInfo();
   }
 
   getHomeInfo() {
@@ -33,38 +33,51 @@ class Home extends Component {
     }
   }
 
-
   getRandomFact() {
     const randomIndex = Math.floor(Math.random() * sharkFacts.length);
     return sharkFacts[randomIndex];
   }
 
-  render() {
+  renderHeroContainer() {
+    return (
+      <div className="hero-container">
+        <img className="hero-img" src={hero} alt="Shark" />
+      </div>
+    );
+  }
+
+  renderFontContainer() {
+    return (
+      <div className="font-container">
+        <img className="grayscale" src={grayscale} alt="Chompers Logo" />
+        <h1>Shark Facts</h1>
+        <div className="quotes-container">
+          <h3>{this.getRandomFact()}</h3>
+        </div>
+      </div>
+    );
+  }
+
+  renderSeasonLinks() {
     const { seasons } = this.props;
     const sortedSeasons = [...seasons].sort((a, b) => b.number - a.number);
 
+    return sortedSeasons.map((season) => (
+      <Link key={season.id} to={`/episodes/${season.id}`} className="season-link">
+        {season.number}
+      </Link>
+    ));
+  }
+
+  render() {
     return (
       <div className="home-container">
-        <div className="hero-container">
-          <img className="hero-img" src={hero} alt="Shark" />
-        </div>
+        {this.renderHeroContainer()}
         <div className="content-container">
-          <div className="font-container">
-          <img className='grayscale' src={grayscale} alt="Chompers Logo" />
-          <h1>Shark Facts</h1>
-          <div className="quotes-container">
-            <h3>{this.getRandomFact()}</h3>
-            </div>
-          </div>
+          {this.renderFontContainer()}
           <div className="navbar">
             <div className="season-header">Season</div>
-            <div className="seasons-list">
-              {sortedSeasons.map((season) => (
-                <Link key={season.id} to={`/episodes/${season.id}`} className="season-link">
-                  {season.number}
-                </Link>
-              ))}
-            </div>
+            <div className="seasons-list">{this.renderSeasonLinks()}</div>
           </div>
         </div>
       </div>
@@ -82,5 +95,3 @@ Home.propTypes = {
     })
   ).isRequired,
 };
-
-
