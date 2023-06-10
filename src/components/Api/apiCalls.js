@@ -21,7 +21,6 @@ const fetchSeasons = () => {
 };
 
 const fetchSingleEpisode = (episodeId) => {
-  console.log('Fetching episode:', episodeId);
   return fetch(`https://api.tvmaze.com/episodes/${episodeId}`)
     .then((res) => {
       if (!res.ok) {
@@ -31,7 +30,6 @@ const fetchSingleEpisode = (episodeId) => {
       }
     })
     .then((data) => {
-      console.log('Episode data:', data);
       return data;
     });
 };
