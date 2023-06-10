@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { fetchSingleEpisode } from "../Api/apiCalls";
 import sharkDefault from '../../assets/sharkDefault.png';
-
-function removeHtmlTags(htmlString) {
-  const sanitizedString = htmlString.replace(/<\/?[^>]+(>|$)/g, "");
-  return sanitizedString;
-}
+import { removeHtmlTags } from "../Api/utilities.js";
 
 class EpisodeDetail extends Component {
   constructor(props) {

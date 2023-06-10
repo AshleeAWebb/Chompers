@@ -9,7 +9,6 @@ import Home from '../Home/Home';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import EpisodeDetail from '../EpisodeDetail/EpisodeDetail';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +34,6 @@ class App extends Component {
 
   render() {
     const { seasons, error } = this.state;
-
     return (
       <>
         {error ? (
