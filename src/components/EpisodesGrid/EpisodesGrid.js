@@ -60,11 +60,10 @@ class EpisodesGrid extends Component {
       />
     ));
 
-    if (error) {
-      return <Redirect to="/error" />;
-    }
-
     return (
+      error ? (
+        <Redirect to="/error" />
+      ) : 
       <div>
         <div className="title">
           <h1>Season {this.state.season}</h1>

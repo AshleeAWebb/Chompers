@@ -70,7 +70,6 @@ class EpisodeDetail extends Component {
   
         this.setState({
           episode: episodeData,
-          error: '',
         });
       })
       .catch((error) => {
@@ -84,7 +83,6 @@ class EpisodeDetail extends Component {
 
 
   getSharkMessage() {
-    const { error } = this.state;
   return (
       <div className="shark-message">
         <div className="shark-episode-details-info">
@@ -101,13 +99,7 @@ class EpisodeDetail extends Component {
   }
 
   render() {
-    const { episode } = this.state;
-    console.log('Episode:', episode);
-    console.log('Name:', episode.name);
-    console.log('Season:', episode.season);
-    console.log('Airdate:', episode.airdate);
-    console.log('Runtime:', episode.runtime);
-  
+    const { episode, error } = this.state;
     const formattedAirdate = episode.airdate ? new Date(episode.airdate).toLocaleDateString() : '';
   
     let summaryContent;
@@ -116,6 +108,10 @@ class EpisodeDetail extends Component {
       summaryContent = <p className="summary-detail">{sanitizedSummary}</p>;
     } else {
       summaryContent = <p className="summary-detail">No summary available for this episode.</p>;
+    }
+  
+    if (error) {
+      return <Redirect to="/error" />;
     }
   
     if (!episode || !episode.name || !episode.season || !episode.airdate || !episode.runtime) {
