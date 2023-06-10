@@ -1,14 +1,14 @@
 describe('2004 Grid', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.tvmaze.com/seasons/17523/episodes', {
-      fixture: '2004.json', 
+      fixture: '2004.json',
     }).as('getGrid2004.json');
 
     cy.intercept('GET', 'https://api.tvmaze.com/shows/5853/seasons', {
-      fixture: 'seasons.json', 
+      fixture: 'seasons.json',
     }).as('allSharkSeasons');
 
-    cy.visit('http://localhost:3000/episodes/17523'); 
+    cy.visit('http://localhost:3000/episodes/17523');
 
     cy.wait('@getGrid2004.json');
   });
@@ -20,10 +20,10 @@ describe('2004 Grid', () => {
   it('displays episode cards with episode images and titles', () => {
     cy.get('.episodeGrid')
       .find('.wrapper')
-      .should('have.length', 3);   
+      .should('have.length', 3);
     cy.get('.episodeGrid')
       .find('.episode-img')
-      .should('have.length', 3); 
+      .should('have.length', 3);
     cy.get('.episodeGrid')
       .find('.episode-title')
       .should('have.length', 3)
@@ -32,18 +32,18 @@ describe('2004 Grid', () => {
       });
   });
 
-it('should not displays a limited data message for episodes without default images', () => {
-  cy.get('.limitedDataMessage').should('exist');
-  cy.get('.limitedDataMessage')
-    .find('p')
-    .should('have.length', 2)
-    .first()
-    .should('contain.text', 'Limited data is available for episodes in Season 2004.');
-  cy.get('.limitedDataMessage')
-    .find('p')
-    .last()
-    .should('contain.text', 'Check out Shark Week for more details!')
-    .find('a')
-    .should('have.attr', 'href', 'https://www.discovery.com/shark-week');
-});
+  it('should not displays a limited data message for episodes without default images', () => {
+    cy.get('.limitedDataMessage').should('exist');
+    cy.get('.limitedDataMessage')
+      .find('p')
+      .should('have.length', 2)
+      .first()
+      .should('contain.text', 'Limited data is available for episodes in Season 2004.');
+    cy.get('.limitedDataMessage')
+      .find('p')
+      .last()
+      .should('contain.text', 'Check out Shark Week for more details!')
+      .find('a')
+      .should('have.attr', 'href', 'https://www.discovery.com/shark-week');
+  });
 });

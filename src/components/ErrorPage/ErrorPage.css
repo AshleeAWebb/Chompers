@@ -12,7 +12,7 @@
 
 .error-link {
   color: #dbd4c0;
-  font-family: 'Amity Jack', sans-serif;
+  font-family: "Amity Jack", sans-serif;
   font-size: 3rem;
   text-align: left;
   width: 35%;
@@ -37,7 +37,7 @@
   }
 
   .error-page {
-    background-image:none;
+    background-image: none;
     width: 100%;
   }
 }

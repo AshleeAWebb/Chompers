@@ -46,7 +46,7 @@ class EpisodeDetail extends Component {
   componentDidMount() {
     this.getSingleEpisode();
   }
-  
+
   getSingleEpisode() {
     const { id } = this.props;
     fetchSingleEpisode(id)
@@ -67,7 +67,7 @@ class EpisodeDetail extends Component {
           summary: data.summary,
           _links: data._links,
         };
-  
+
         this.setState({
           episode: episodeData,
         });
@@ -83,7 +83,7 @@ class EpisodeDetail extends Component {
 
 
   getSharkMessage() {
-  return (
+    return (
       <div className="shark-message">
         <div className="shark-episode-details-info">
           <p>We're sorry, but information about this episode is not available.</p>
@@ -101,7 +101,7 @@ class EpisodeDetail extends Component {
   render() {
     const { episode, error } = this.state;
     const formattedAirdate = episode.airdate ? new Date(episode.airdate).toLocaleDateString() : '';
-  
+
     let summaryContent;
     if (episode.summary) {
       const sanitizedSummary = removeHtmlTags(episode.summary);
@@ -109,16 +109,16 @@ class EpisodeDetail extends Component {
     } else {
       summaryContent = <p className="summary-detail">No summary available for this episode.</p>;
     }
-  
+
     if (error) {
       return <Redirect to="/error" />;
     }
-  
+
     if (!episode || !episode.name || !episode.season || !episode.airdate || !episode.runtime) {
       console.log('Showing Shark Message');
       return this.getSharkMessage();
     }
-  
+
     return (
       <div className="episode-details">
         <div className="episode-details-info">
@@ -135,7 +135,7 @@ class EpisodeDetail extends Component {
             alt={episode.name}
           />
           <p className="episode-url">
-            For More Shark Week Information:  
+            For More Shark Week Information:
             <a className="shark-week-url" href="https://www.discovery.com/shark-week" target="_blank" rel="noreferrer">
               Click Here
             </a>

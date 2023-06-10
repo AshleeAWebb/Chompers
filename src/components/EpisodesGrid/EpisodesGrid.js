@@ -63,16 +63,16 @@ class EpisodesGrid extends Component {
     return (
       error ? (
         <Redirect to="/error" />
-      ) : 
-      <div>
-        <div className="title">
-          <h1>Season {this.state.season}</h1>
-          {this.limititedSeason()}
+      ) :
+        <div>
+          <div className="title">
+            <h1>Season {this.state.season}</h1>
+            {this.limititedSeason()}
+          </div>
+          <div className="episodeGrid">
+            {episodeCards}
+          </div>
         </div>
-        <div className="episodeGrid">
-          {episodeCards}
-        </div>
-      </div>
     );
   }
 }
