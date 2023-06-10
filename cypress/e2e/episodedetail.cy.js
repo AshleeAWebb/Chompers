@@ -1,3 +1,4 @@
+
 describe('EpisodeDetail Component', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.tvmaze.com/seasons/139611/episodes', {
@@ -30,7 +31,7 @@ describe('EpisodeDetail Component', () => {
     }).as('getSingleEpisode');
     cy.visit('localhost:3000/episode/2359999'); 
     cy.wait('@getSingleEpisode').then(() => {
-      cy.get('.error-page').should('contain', 'Error: Just when you thought it was safe to surf the web...')
+      cy.get('.shark-message').should('contain', 'We\'re sorry, but information about this episode is not available.')
     });
   });
 

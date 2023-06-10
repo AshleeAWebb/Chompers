@@ -64,7 +64,7 @@ class EpisodeDetail extends Component {
           runtime: data.runtime,
           rating: data.rating,
           image: data.image,
-          summary: removeHtmlTags(data.summary),
+          summary: data.summary,
           _links: data._links,
         };
   
@@ -101,45 +101,53 @@ class EpisodeDetail extends Component {
   }
 
   render() {
-  const { episode } = this.state;
-  console.log('Episode:', episode);
-  console.log('Name:', episode.name);
-  console.log('Season:', episode.season);
-  console.log('Airdate:', episode.airdate);
-  console.log('Runtime:', episode.runtime);
-
-  const formattedAirdate = episode.airdate ? new Date(episode.airdate).toLocaleDateString() : '';
-
-  if (!episode || !episode.name || !episode.season || !episode.airdate || !episode.runtime) {
-    console.log('Showing Shark Message');
-    return this.getSharkMessage();
+    const { episode } = this.state;
+    console.log('Episode:', episode);
+    console.log('Name:', episode.name);
+    console.log('Season:', episode.season);
+    console.log('Airdate:', episode.airdate);
+    console.log('Runtime:', episode.runtime);
+  
+    const formattedAirdate = episode.airdate ? new Date(episode.airdate).toLocaleDateString() : '';
+  
+    let summaryContent;
+    if (episode.summary) {
+      const sanitizedSummary = removeHtmlTags(episode.summary);
+      summaryContent = <p className="summary-detail">{sanitizedSummary}</p>;
+    } else {
+      summaryContent = <p className="summary-detail">No summary available for this episode.</p>;
+    }
+  
+    if (!episode || !episode.name || !episode.season || !episode.airdate || !episode.runtime) {
+      console.log('Showing Shark Message');
+      return this.getSharkMessage();
+    }
+  
+    return (
+      <div className="episode-details">
+        <div className="episode-details-info">
+          <h2 className="episode-name">{episode.name}</h2>
+          <p>Season {episode.season}</p>
+          <p className="time">{episode.runtime} Minutes</p>
+          <p className="date">{formattedAirdate}</p>
+          {summaryContent}
+        </div>
+        <div className="episode-image-container">
+          <img
+            className="episode-image"
+            src={episode.image ? episode.image.original : sharkDefault}
+            alt={episode.name}
+          />
+          <p className="episode-url">
+            For More Shark Week Information:  
+            <a className="shark-week-url" href="https://www.discovery.com/shark-week" target="_blank" rel="noreferrer">
+              Click Here
+            </a>
+          </p>
+        </div>
+      </div>
+    );
   }
-
-  return (
-    <div className="episode-details">
-      <div className="episode-details-info">
-        <h2 className="episode-name">{episode.name}</h2>
-        <p>Season {episode.season}</p>
-        <p className="time">{episode.runtime} Minutes</p>
-        <p className="date">{formattedAirdate}</p>
-        <p className="summary-detail">{episode.summary}</p>
-      </div>
-      <div className="episode-image-container">
-        <img
-          className="episode-image"
-          src={episode.image ? episode.image.original : sharkDefault}
-          alt={episode.name}
-        />
-        <p className="episode-url">
-          For More Shark Week Information:  
-          <a className="shark-week-url" href="https://www.discovery.com/shark-week" target="_blank" rel="noreferrer">
-            Click Here
-          </a>
-        </p>
-      </div>
-    </div>
-  );
-}
 }
 
 export default EpisodeDetail;
