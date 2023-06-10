@@ -22,10 +22,14 @@ class App extends Component {
   componentDidMount() {
     fetchSeasons()
       .then((seasonsData) => {
-        this.setState({ seasons: seasonsData});
+        this.setState({ seasons: seasonsData });
       })
       .catch((error) => {
-        this.setState({ error: error.message });
+        if (error instanceof Error) {
+          this.setState({ error: "Server error." });
+        } else {
+          this.setState({ error: "Unknown error." });
+        }
       });
   }
 
@@ -35,7 +39,7 @@ class App extends Component {
     return (
       <>
         {error ? (
-          <ErrorPage message={error}/>
+          <ErrorPage />
         ) : (
           <main className="App">
             <div>
@@ -58,13 +62,13 @@ class App extends Component {
                   path="/episode/:id"
                   render={({ match }) => (
                     <>
-                    <Header />
-                    <EpisodeDetail id={match.params.id} />
+                      <Header />
+                      <EpisodeDetail id={match.params.id} />
                     </>
                   )}
                 />
                 <Route exact path="/error">
-                  <ErrorPage message={error}/>
+                  <ErrorPage />
                 </Route>
                 <Route path="*">
                   <Redirect to="/error" />

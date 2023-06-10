@@ -31,7 +31,7 @@ describe('EpisodeDetail Component', () => {
     }).as('getSingleEpisode');
     cy.visit('localhost:3000/episode/2359999'); 
     cy.wait('@getSingleEpisode').then(() => {
-      cy.get('.shark-message').should('contain', 'We\'re sorry, but information about this episode is not available.')
+    cy.get('.error-page').should('contain', 'Error: Just when you thought it was safe to surf the web... ');
     });
   });
 

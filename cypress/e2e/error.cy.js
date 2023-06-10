@@ -34,17 +34,17 @@ describe('Error Handling', () => {
     cy.get('.error-page').should('contain', 'Error: Just when you thought it was safe to surf the web... ');
   });
 
-  // it('navigates to the error page when there is an error on episode grid', () => {
-  //   cy.visit('http://localhost:3000/episodes/139611');
-  //   cy.wait('@getEpisodes');
-  //   cy.url().should('eq', 'http://localhost:3000/error');
-  //   cy.get('.error-page').should('contain', 'Error: Just when you thought it was safe to surf the web... ');
-  // });
+  it('navigates to the error page when there is an error on episode grid', () => {
+    cy.visit('http://localhost:3000/episodes/139611');
+    cy.wait('@getEpisodes');
+    cy.url().should('eq', 'http://localhost:3000/error');
+    cy.get('.error-page').should('contain', 'Error: Just when you thought it was safe to surf the web... ');
+  });
 
-  // it('navigates to the error page when there is an error on detailed episode', () => {
-  //   cy.visit('http://localhost:3000/episode/2359999');
-  //   cy.wait('@getSingleEpisode');
-  //   cy.url().should('eq', 'http://localhost:3000/error');
-  //   cy.get('.error-page').should('contain', 'Error: Just when you thought it was safe to surf the web... ');
-  // });
+  it('navigates to the error page when there is an error on detailed episode', () => {
+    cy.visit('http://localhost:3000/episode/2359999');
+    cy.wait('@getSingleEpisode');
+    cy.url().should('eq', 'http://localhost:3000/error');
+    cy.get('.error-page').should('contain', 'Error: Just when you thought it was safe to surf the web... ');
+  });
 });
