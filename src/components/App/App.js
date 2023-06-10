@@ -49,7 +49,7 @@ class App extends Component {
                   render={(props) => (
                     <>
                       <Header />
-                      <EpisodesGrid {...props} message={error}/>
+                      <EpisodesGrid {...props} />
                     </>
                   )}
                 />
@@ -59,7 +59,7 @@ class App extends Component {
                   render={({ match }) => (
                     <>
                     <Header />
-                    <EpisodeDetail id={match.params.id} message={error}/>
+                    <EpisodeDetail id={match.params.id} />
                     </>
                   )}
                 />
