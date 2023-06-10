@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import '../EpisodeDetail/EpisodeDetail.css';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import { fetchSingleEpisode } from "../Api/apiCalls";
 import sharkDefault from '../../assets/sharkDefault.png';
 
@@ -83,22 +82,29 @@ class EpisodeDetail extends Component {
   }
 
 
-  getSharkMessage() {
-    const { error } = this.state;
+getSharkMessage() {
+  const { error } = this.state;
+
   return (
-      <div className="shark-message">
-        <div className="shark-episode-details-info">
-          <p>We're sorry, but information about this episode is not available.</p>
-          <p>Swim on over to Discovery Channel and</p>
-          <p>Check out</p>
-          <a href="https://www.discovery.com/shark-week" target="_blank" rel="noopener noreferrer">
-            Shark Week
-          </a>
-          <p>for more exciting shark-related content!</p>
-        </div>
+    <div className="shark-message">
+      <div className="shark-episode-details-info">
+        {error ? (
+          <p>Sorry, there was an error: {error}</p>
+        ) : (
+          <>
+            <p>We're sorry, but information about this episode is not available.</p>
+            <p>Swim on over to Discovery Channel and</p>
+            <p>Check out</p>
+            <a href="https://www.discovery.com/shark-week" target="_blank" rel="noopener noreferrer">
+              Shark Week
+            </a>
+            <p>for more exciting shark-related content!</p>
+          </>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   render() {
   const { episode } = this.state;
