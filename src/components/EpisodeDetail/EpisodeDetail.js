@@ -101,7 +101,6 @@ class EpisodeDetail extends Component {
   render() {
     const { episode, error } = this.state;
     const formattedAirdate = episode.airdate ? new Date(episode.airdate).toLocaleDateString() : '';
-
     let summaryContent;
     if (episode.summary) {
       const sanitizedSummary = removeHtmlTags(episode.summary);
@@ -109,16 +108,12 @@ class EpisodeDetail extends Component {
     } else {
       summaryContent = <p className="summary-detail">No summary available for this episode.</p>;
     }
-
     if (error) {
       return <Redirect to="/error" />;
     }
-
     if (!episode || !episode.name || !episode.season || !episode.airdate || !episode.runtime) {
-      console.log('Showing Shark Message');
       return this.getSharkMessage();
     }
-
     return (
       <div className="episode-details">
         <div className="episode-details-info">
