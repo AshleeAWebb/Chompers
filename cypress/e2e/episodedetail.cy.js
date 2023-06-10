@@ -4,6 +4,14 @@ describe('EpisodeDetail Component', () => {
     cy.intercept('GET', 'https://api.tvmaze.com/seasons/139611/episodes', {
       fixture: '2022.json',
     }).as('getEpisodes');
+    
+    cy.intercept('GET', 'https://api.tvmaze.com/seasons/17516/episodes', {
+      fixture: '2022.json',
+    }).as('getEpisodes');
+
+    cy.intercept('GET', 'https://api.tvmaze.com/seasons/17523/episodes', {
+      fixture: '2004.json',
+    }).as('getGrid2004.json');
 
     cy.intercept('GET', 'https://api.tvmaze.com/shows/5853/seasons', {
       fixture: 'seasons.json',
@@ -44,4 +52,21 @@ describe('EpisodeDetail Component', () => {
       cy.get('.shark-message').should('contain', "We're sorry, but information about this episode is not available.");
     });
   });
+
+  it('navigates back to home when the header is clicked', () => {
+    cy.visit('localhost:3000/episode/2359999');
+    cy.wait('@getSingleEpisode');
+    cy.get('.logo').click();
+    cy.url().should('eq', 'http://localhost:3000/');
+  });
+
+  it('navigates back to the grid when the browser back button is clicked', () => {
+    cy.visit('http://localhost:3000/episodes/139611');
+    cy.wait('@getEpisodes');
+    cy.get('.episode-img').first().click();
+    cy.wait('@getSingleEpisode');
+    cy.go('back');
+    cy.url().should('eq', 'http://localhost:3000/episodes/139611');
+  });
 });
+

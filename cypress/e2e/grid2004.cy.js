@@ -46,4 +46,13 @@ describe('2004 Grid', () => {
       .find('a')
       .should('have.attr', 'href', 'https://www.discovery.com/shark-week');
   });
+
+  it('navigates back to the grid when the browser back button is clicked', () => {
+    cy.visit('localhost:3000/');
+    cy.wait('@allSharkSeasons');
+    cy.get('.season-link').eq(1).should('have.text', '2004').click();
+    cy.wait('@getGrid2004.json');
+    cy.go('back');
+    cy.url().should('eq', 'http://localhost:3000/');
+  });
 });

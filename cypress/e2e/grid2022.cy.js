@@ -36,4 +36,12 @@ describe('2022 Grid', () => {
     cy.get('.limitedDataMessage').should('not.exist');
   });
 
+  it('navigates back to the grid when the browser back button is clicked', () => {
+    cy.visit('localhost:3000/');
+    cy.wait('@allSharkSeasons');
+    cy.get('.season-link').first().should('have.text', '2022').first().click();
+    cy.wait('@getGrid2022');
+    cy.go('back');
+    cy.url().should('eq', 'http://localhost:3000/');
+  });
 });
