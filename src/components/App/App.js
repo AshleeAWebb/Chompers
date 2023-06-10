@@ -16,14 +16,13 @@ class App extends Component {
     this.state = {
       seasons: [],
       error: '',
-      isLoading: true,
     };
   }
 
   componentDidMount() {
     fetchSeasons()
       .then((seasonsData) => {
-        this.setState({ seasons: seasonsData, isLoading: false });
+        this.setState({ seasons: seasonsData});
       })
       .catch((error) => {
         this.setState({ error: error.message });
@@ -31,7 +30,7 @@ class App extends Component {
   }
 
   render() {
-    const { seasons, error, isLoading } = this.state;
+    const { seasons, error } = this.state;
 
     return (
       <>
