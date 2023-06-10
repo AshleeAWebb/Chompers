@@ -1,0 +1,29 @@
+
+  {
+  "id": 2359999,
+  "url": "https://www.tvmaze.com/episodes/2359999/shark-week-2022-special-dawn-of-the-monster-mako",
+  "name": "Dawn of the Monster Mako",
+  "season": 2022,
+  "number": null,
+  "type": "significant_special",
+  "airdate": "2022-07-15",
+  "airtime": "",
+  "airstamp": "2022-07-15T16:00:00+00:00",
+  "runtime": 41,
+  "rating": {
+    "average": null
+  },
+  "image": {
+    "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/417/1043298.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/417/1043298.jpg"
+  },
+  "summary": "<p>A 14-foot giant Mako shark is spotted in the waters off the Azores. Veteran underwater cinematographer Joe Romeiro and his wife, marine biologist and filmmaker Lauren Romeiro, search the teeming depths around the ancient island archipelago to capture the beast on film.</p>",
+  "_links": {
+    "self": {
+      "href": "https://api.tvmaze.com/episodes/2359999"
+    },
+    "show": {
+      "href": "https://api.tvmaze.com/shows/5853"
+    }
+  }
+}

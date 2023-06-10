@@ -1,0 +1,86 @@
+[
+  {
+    "id": 2359999,
+    "url": "https://www.tvmaze.com/episodes/2359999/shark-week-2022-special-dawn-of-the-monster-mako",
+    "name": "Dawn of the Monster Mako",
+    "season": 2022,
+    "number": 1,
+    "type": "significant_special",
+    "airdate": "2022-07-15",
+    "airtime": "",
+    "airstamp": "2022-07-15T16:00:00+00:00",
+    "runtime": 41,
+    "rating": {
+      "average": null
+    },
+    "image": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/417/1043298.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/417/1043298.jpg"
+    },
+    "summary": "<p>A 14-foot giant Mako shark is spotted in the waters off the Azores. Veteran underwater cinematographer Joe Romeiro and his wife, marine biologist and filmmaker Lauren Romeiro, search the teeming depths around the ancient island archipelago to capture the beast on film.</p>",
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/2359999"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/5853"
+      }
+    }
+  },
+  {
+    "id": 2360000,
+    "url": "https://www.tvmaze.com/episodes/2360000/shark-week-2022-special-the-haunting-of-shark-tower",
+    "name": "The Haunting of Shark Tower",
+    "season": 2022,
+    "number": 2,
+    "type": "significant_special",
+    "airdate": "2022-07-15",
+    "airtime": "",
+    "airstamp": "2022-07-15T16:00:00+00:00",
+    "runtime": 41,
+    "rating": {
+      "average": null
+    },
+    "image": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/417/1043712.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/417/1043712.jpg"
+    },
+    "summary": "<p>News of a harrowing shark encounter at North Carolina's Frying Pan Tower has underwater cinematographer Andy Casagrande and Shark Expert Kori Garza on a dangerous quest to discover whether great white sharks are moving into the state's waters.</p>",
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/2360000"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/5853"
+      }
+    }
+  },
+  {
+    "id": 2360001,
+    "url": "https://www.tvmaze.com/episodes/2360001/shark-week-2022-special-great-white-intersection",
+    "name": "Great White Intersection",
+    "season": 2022,
+    "number": 3,
+    "type": "significant_special",
+    "airdate": "2022-07-23",
+    "airtime": "",
+    "airstamp": "2022-07-23T16:00:00+00:00",
+    "runtime": 41,
+    "rating": {
+      "average": null
+    },
+    "image": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/417/1043299.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/417/1043299.jpg"
+    },
+    "summary": "<p>Following the tragic and fatal shark attack of Arthur Medici in September 2018, <i>Great White Intersection</i> takes an in-depth look at the resurgence of great white sharks off the beaches of Cape Cod as the local community struggles to come to terms with a new reality.</p>",
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/2360001"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/5853"
+      }
+    }
+  }
+]

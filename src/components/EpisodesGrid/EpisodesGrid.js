@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchEpisodes } from '../Api/apiCalls';
-import { useParams } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Episode from '../EpisodesGrid/Episode/Episode';
 import '../EpisodesGrid/EpisodesGrid.css';
 import sharkDefault from '../../assets/sharkDefault.png';
@@ -20,34 +20,37 @@ class EpisodesGrid extends Component {
     const { seasonId } = this.props.match.params;
     fetchEpisodes(seasonId)
       .then((episodesData) => {
-        this.setState({ 
+        this.setState({
           episodes: episodesData,
           season: episodesData.length > 0 ? episodesData[0].season : null
         });
       })
       .catch((error) => {
-        this.setState({ error: error.message });
+        if (error instanceof Error) {
+          this.setState({ error: "Server error." });
+        } else {
+          this.setState({ error: "Unknown error." });
+        }
       });
   }
 
   limititedSeason() {
-    let message = null;
     const hasDefaultImages = this.state.episodes.every(({ image }) => image === null || image === sharkDefault);
-    if (hasDefaultImages) {
-      message = (
-        <div className="limitedDataWrapper">
-          <div className="limitedDataMessage">
-            <p>Limited data is available for episodes in Season {this.state.season}.</p>
-            <p>Check out <a className ="shark-week-url" href="https://www.discovery.com/shark-week">Shark Week</a> for more details!</p>
-          </div>
-        </div>
-      );
+    if (!hasDefaultImages) {
+      return null;
     }
-    return message;
+    return (
+      <div className="limitedDataWrapper">
+        <div className="limitedDataMessage">
+          <p>Limited data is available for episodes in Season {this.state.season}.</p>
+          <p>Check out <a className="shark-week-url" href="https://www.discovery.com/shark-week">Shark Week</a> for more details!</p>
+        </div>
+      </div>
+    );
   }
 
   render() {
-    const { episodes } = this.state;
+    const { episodes, error } = this.state;
     const episodeCards = episodes.map(({ id, image, name, season, number }) => (
       <Episode
         episodeImg={image ? image.medium : sharkDefault}
@@ -56,20 +59,25 @@ class EpisodesGrid extends Component {
         episodeTitle={`${name} - Season ${season}, Episode ${number}`}
       />
     ));
-  
+
+    if (error) {
+      return <Redirect to="/error" />;
+    }
+
     return (
-      <>
+      <div>
         <div className="title">
-          {<h1>Season {this.state.season}</h1>}
+          <h1>Season {this.state.season}</h1>
           {this.limititedSeason()}
         </div>
         <div className="episodeGrid">
           {episodeCards}
         </div>
-      </>
+      </div>
     );
   }
 }
+
 export default EpisodesGrid;
 
 EpisodesGrid.propTypes = {
@@ -78,7 +86,4 @@ EpisodesGrid.propTypes = {
       seasonId: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
-  episodes: PropTypes.array,
-  error: PropTypes.string,
-  season: PropTypes.string,
 };

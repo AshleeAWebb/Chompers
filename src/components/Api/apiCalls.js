@@ -21,14 +21,20 @@ const fetchSeasons = () => {
 };
 
 const fetchSingleEpisode = (episodeId) => {
+  console.log('Fetching episode:', episodeId);
   return fetch(`https://api.tvmaze.com/episodes/${episodeId}`)
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error(`Please try again, there is an error. Code: ${res.status}`);
-    } else {
-      return res.json();
-    }
-  });
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`Please try again, there is an error. Code: ${res.status}`);
+      } else {
+        return res.json();
+      }
+    })
+    .then((data) => {
+      console.log('Episode data:', data);
+      return data;
+    });
 };
+
 
 export { fetchEpisodes, fetchSeasons, fetchSingleEpisode};
