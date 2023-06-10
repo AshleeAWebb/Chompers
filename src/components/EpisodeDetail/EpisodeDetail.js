@@ -85,12 +85,7 @@ class EpisodeDetail extends Component {
 
   getSharkMessage() {
     const { error } = this.state;
-  
-    if (error) {
-      return <Redirect to="/error" />;
-    }
-  
-    return (
+  return (
       <div className="shark-message">
         <div className="shark-episode-details-info">
           <p>We're sorry, but information about this episode is not available.</p>
