@@ -97,8 +97,8 @@ class EpisodeDetail extends Component {
         <div className="episode-details-info">
           <h2 className="episode-name">{episode.name}</h2>
           <p>Season {episode.season}</p>
-          <p className="time">{episode.runtime} Minutes</p>
-          <p className="date">{formattedAirdate}</p>
+          <p className="time">Runtime: {episode.runtime} Minutes</p>
+          <p className="date">Date Aired: {formattedAirdate}</p>
           {summaryContent}
         </div>
         <div className="episode-image-container">
