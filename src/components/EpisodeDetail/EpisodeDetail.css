@@ -57,6 +57,13 @@ flex-direction: column;
   text-decoration: none;
 }
 
+.summary-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
 .shark-week-url {
   margin: 1rem;
   font-family: 'Amity Jack', sans-serif;
