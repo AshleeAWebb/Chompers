@@ -84,7 +84,6 @@ class EpisodeDetail extends Component {
 
 
   getSharkMessage() {
-    const { error } = this.state;
   return (
       <div className="shark-message">
         <div className="shark-episode-details-info">
@@ -101,13 +100,7 @@ class EpisodeDetail extends Component {
   }
 
   render() {
-    const { episode } = this.state;
-    console.log('Episode:', episode);
-    console.log('Name:', episode.name);
-    console.log('Season:', episode.season);
-    console.log('Airdate:', episode.airdate);
-    console.log('Runtime:', episode.runtime);
-  
+    const { episode, error} = this.state;
     const formattedAirdate = episode.airdate ? new Date(episode.airdate).toLocaleDateString() : '';
   
     let summaryContent;
@@ -124,6 +117,7 @@ class EpisodeDetail extends Component {
     }
   
     return (
+      error ? <Redirect to="/error" /> :
       <div className="episode-details">
         <div className="episode-details-info">
           <h2 className="episode-name">{episode.name}</h2>
