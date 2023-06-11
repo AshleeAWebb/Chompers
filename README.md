@@ -34,11 +34,9 @@ Chomper's" was developed as the final project for Turing School of Software and 
 Visit our deployed page [here](https://chompers.vercel.app/).
 
 ## Wins
-Despite the tight timeframe, I feel that I successfully leveraged React and Cypress to deliver a functional and user-friendly app. I was also able to build something that has my perosonal touch as i was able to create custom icons and graphics elements imporvoing the style of the site. 
-
-One of the major advantages of using React in "Chomper's" is its component-based architecture, which promotes reusability and modularity. By breaking down the user interface into smaller, self-contained components, the development process became more streamlined and efficient. This allowed for easier maintenance, updates, and future scalability of the application.
+Despite the tight timeframe, I successfully utilized React and Cypress to deliver a functional and user-friendly app. I added a personal touch by creating custom icons and graphics, enhancing the site's style. One of the significant advantages of employing React in "Chomper's" is its component-based architecture, which promotes reusability and modularity. Breaking down the user interface into smaller, self-contained components streamlined and expedited the development process.
 ## Challenges & Improvements
-I was chaallenged with the different information that could be pulled from the api older data had to be handled differnetly and the summary coming in from the API had html elements with in it that i had to reasearhc how to get rid of. Another challenge i faced with with the error handling and the redirect of the error path not allways diapling withint testing i was able to get it fix but took some time of coming of my error handling and ensuring that the error path updaated properly. 
+I encountered challenges while handling different types of information pulled from the API. Dealing with older data required a different approach, and I had to find a solution to remove HTML elements from the API's summary. Additionally, I faced difficulties with error handling and redirecting the error path, as it didn't always display properly during testing. It took time to fix these issues by refining my error handling and ensuring the error path updated correctly.
 
 ## Set Up
 1. Fork [this](https://github.com/AshleeAWebb/Chompers) repository to your GitHub account.
